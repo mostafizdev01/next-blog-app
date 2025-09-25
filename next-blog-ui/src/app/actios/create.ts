@@ -3,7 +3,7 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
-export const create = async (data: FormData) => {
+export const create = async (data: FormData) => { // data => received the submited form data 
   const blogInfo = Object.fromEntries(data.entries());
   const modifiedData = {
     ...blogInfo,
@@ -14,12 +14,17 @@ export const create = async (data: FormData) => {
     authorId: 1,
     isFeatured: Boolean(blogInfo.isFeatured),
   };
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASIC_API}/post`, {
+
     method: "POST",
+
     headers: {
       "Content-Type": "application/json",
     },
+
     body: JSON.stringify(modifiedData),
+
   });
 
   const result = await res.json();
