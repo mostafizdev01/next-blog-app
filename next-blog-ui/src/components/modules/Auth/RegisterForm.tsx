@@ -16,6 +16,8 @@ import {
 // import { register } from "@/actions/auth";
 // import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { register } from "@/app/actios/auth";
+import { toast } from "sonner";
 
 // type RegisterFormValues = {
 //   name: string;
@@ -36,12 +38,11 @@ export default function RegisterForm() {
   const router = useRouter();
   const onSubmit = async (values: FieldValues) => {
     try {
-      console.log(values)
-    //   const res = await register(values);
-    //   if (res?.id) {
-        // toast.success("User Registered Successfully");
-        // router.push("/login");
-    //   }
+      const res = await register(values);
+      if (res?.id) {
+        toast.success("User Registered Successfully");
+        router.push("/login");
+      }
     } catch (err) {
       console.error(err);
     }
