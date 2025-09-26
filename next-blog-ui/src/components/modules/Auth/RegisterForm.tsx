@@ -36,10 +36,11 @@ export default function RegisterForm() {
   const router = useRouter();
   const onSubmit = async (values: FieldValues) => {
     try {
+      console.log(values)
     //   const res = await register(values);
     //   if (res?.id) {
         // toast.success("User Registered Successfully");
-        router.push("/login");
+        // router.push("/login");
     //   }
     } catch (err) {
       console.error(err);

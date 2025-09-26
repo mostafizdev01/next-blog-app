@@ -11,7 +11,7 @@ const DashboardHomePage = async () => {
   return (
     <div className=" w-full text-center flex flex-col justify-center items-center">
       <h1 className=" text-2xl my-10 font-bold">Dashboard Home Page</h1>
-      <Card className="w-full max-w-lg shadow-lg rounded-2xl border border-gray-200">
+      {session?.user && <Card className="w-full max-w-lg shadow-lg rounded-2xl border border-gray-200">
         <CardHeader className="flex items-center gap-4">
           <div>
             <Image src={session?.user?.image as string} width={80} height={80} className=" rounded-full" alt="Profile photo" />
@@ -30,7 +30,7 @@ const DashboardHomePage = async () => {
             View Profile
           </button>
         </CardContent>
-      </Card>
+      </Card>}
     </div>
   );
 };
