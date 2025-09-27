@@ -14,7 +14,7 @@ const DashboardHomePage = async () => {
       {session?.user && <Card className="w-full max-w-lg shadow-lg rounded-2xl border border-gray-200">
         <CardHeader className="flex items-center gap-4">
           <div>
-            <Image src={session?.user?.image as string} width={80} height={80} className=" rounded-full" alt="Profile photo" />
+            <Image src={session?.user?.image ? session?.user?.image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOz18-q0kyakVcxdTuLlyyHVN5npGJi92ou04GZgFVLNWhTim5JlQBwA1hPJMzM90_Uas&usqp=CAU" } width={80} height={80} className=" rounded-full" alt="Profile photo" />
           </div>
           {/* <Avatar className="w-16 h-16">
             <AvatarImage src={session?.user?.image as string} alt="profile photo"/>
